@@ -42,17 +42,20 @@
 }
 
 html {
-  color-scheme: light;
+  color-scheme: only light !important;
+  background-color: #FAFAF7 !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  forced-color-adjust: none !important;
 }
 
 @layer base {
   body {
     @apply bg-warm-white text-charcoal-mid font-sans leading-relaxed;
-    color-scheme: light;
+    color-scheme: only light !important;
+    background-color: #FAFAF7 !important;
   }
 
   h1,
