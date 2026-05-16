@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const Hero = ({ images = [], label, title, subtitle }) => {
+const Hero = ({ images = [], label, title, subtitle, primaryCTA, secondaryCTA }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -88,16 +88,16 @@ const Hero = ({ images = [], label, title, subtitle }) => {
               {/* Main CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 w-full">
                 <Link 
-                  to="/products" 
+                  to={primaryCTA?.to || "/products"} 
                   className="w-full sm:w-auto bg-[#3D4A2E] text-warm-white px-8 md:px-10 py-4 md:py-5 rounded-[4px] text-[12px] md:text-[13px] tracking-widest font-bold uppercase hover:bg-olive-mid transition-all shadow-lg hover:-translate-y-1 text-center"
                 >
-                  View Our Products →
+                  {primaryCTA?.text || "View Our Products →"}
                 </Link>
                 <Link 
-                  to="/wholesale" 
-                  className="w-full sm:w-auto bg-transparent border-2 border-[#1B2A4A] text-[#1B2A4A] px-8 md:px-10 py-4 md:py-5 rounded-[4px] text-[12px] md:text-[13px] tracking-widest font-bold uppercase hover:bg-[#1B2A4A] hover:text-warm-white transition-all text-center"
+                  to={secondaryCTA?.to || "/wholesale"} 
+                  className="w-full sm:w-auto bg-transparent border-2 border-[#3D4A2E] text-[#3D4A2E] px-8 md:px-10 py-4 md:py-5 rounded-[4px] text-[12px] md:text-[13px] tracking-widest font-bold uppercase hover:bg-[#3D4A2E] hover:text-warm-white transition-all text-center"
                 >
-                  Wholesale Enquiries
+                  {secondaryCTA?.text || "Wholesale Enquiries"}
                 </Link>
               </div>
             </motion.div>
