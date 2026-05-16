@@ -5,14 +5,6 @@ import { Link } from 'react-router-dom';
 const Hero = ({ images = [], label, title, subtitle }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Preload images for faster transitions
-  useEffect(() => {
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, [images]);
-
   useEffect(() => {
     if (images.length <= 1) return;
     const timer = setInterval(() => {
